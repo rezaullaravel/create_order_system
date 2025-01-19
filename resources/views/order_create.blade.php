@@ -233,15 +233,20 @@
 
                     <div class="card-body">
 
+                        @if ($cart_products->count()>0)
                         <span id="due">
                             <input type="checkbox" name="payment_due" value="1"><span>Payment due later</span>
                         </span>
+                        @endif
+                        
                         @if ($cart_products->count()>0)
                         <input type="hidden" name="total" value="{{ $total }}">
                         <input type="hidden" name="subtotal" value="{{ $subtotal }}">
                         @endif
 
+                        @if ($cart_products->count()>0)
                         <button type="button" id="print_button" onclick="download()" class="btn btn-info">Create Invoice</button>
+                        @endif
 
                         @if ($cart_products->count()>0)
                         <button type="submit" id="order_button" class="btn btn-primary">Place Order</button>
