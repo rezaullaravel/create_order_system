@@ -238,7 +238,7 @@
                             <input type="checkbox" name="payment_due" value="1"><span>Payment due later</span>
                         </span>
                         @endif
-                        
+
                         @if ($cart_products->count()>0)
                         <input type="hidden" name="total" value="{{ $total }}">
                         <input type="hidden" name="subtotal" value="{{ $subtotal }}">
@@ -371,9 +371,9 @@
                         products: selectedProducts,
                     },
                     success: function(response) {
-
                         $('#productModal').modal('hide');
                         window.location.reload();
+                        //$('.container').load(location.href+' .container');
 
                     },
                     error: function(xhr) {
@@ -400,7 +400,8 @@
                     success: function(response) {
                         if (response.status === 'success') {
                             //alert('updated quantty');
-                            $('#main').load(location.href+' #main');
+                            //$('#main').load(location.href+' #main');
+                            $('.container').load(location.href+' .container');
                         } else {
                             alert(response.message); // Show an error if the update fails
                         }
@@ -420,8 +421,8 @@
                     },
                     success: function(response) {
                         if (response.status === 'success') {
-                            //$('#main').load(location.href+' #main');
                             window.location.reload();
+                            //$('.container').load(location.href+' .container');
                         } else {
                             alert('something went wrong...'); // Show an error if the update fails
                         }
